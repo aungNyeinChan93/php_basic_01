@@ -1,0 +1,10 @@
+The filter_input() function in PHP allows you to retrieve a specific external variable by name and optionally
+filter it. It’s particularly useful for validating variables from insecure sources, such as user input from forms.
+By applying filters, you can prevent potential security threats like SQL injection. Here’s the basic syntax:
+filter_input(int $type, string $var_name, int $filter = FILTER_DEFAULT, array|int $options = 0): mixed
+type: One of INPUT_GET, INPUT_POST, INPUT_COOKIE, INPUT_SERVER, or INPUT_ENV.
+var_name: Name of the variable to retrieve.
+filter: The ID of the filter to apply (e.g., FILTER_SANITIZE_SPECIAL_CHARS).
+options: Associative array of options or bitwise disjunction of flags.
+For example, you can use filter_input(INPUT_GET, 'search', FILTER_SANITIZE_SPECIAL_CHARS) to retrieve
+and sanitize a search query from the URL query string. 

@@ -1,0 +1,26 @@
+## Copilot
+In PHP, flags are often used as integer values to represent binary options or settings. Here are some common use cases:
+- Function Flags:
+    - When defining functions, you can use flags as arguments to control behavior. For example, you might have a function that performs different actions based on specific flags.
+    - To use flags effectively, they should be powers of 2 (1, 2, 4, 8, etc.). This ensures that each flag corresponds to a unique bit position in the binary representation.
+    - Example:
+
+define("FLAG_A", 0x1);
+define("FLAG_B", 0x2);
+define("FLAG_C", 0x4);
+
+function test_flags($flags) {
+    if ($flags & FLAG_A) echo "A";
+    if ($flags & FLAG_B) echo "B";
+    if ($flags & FLAG_C) echo "C";
+}
+
+test_flags(FLAG_B | FLAG_C); // Output: BC
+
+    - Using hexadecimal notation for constant values is idiomatic and emphasizes their bit-field composition.
+- Feature Flags:
+    - Feature flags (also known as feature switches or toggles) allow you to control which features users can see or interact with.
+    - You can use them as part of conditional statements in your code to enable or disable specific functionality.
+- Signal Flags:
+    - In programming, a flag variable acts as a signal to indicate whether a certain condition has been met. It typically behaves like a boolean variable, representing either true or false.
+Remember that flags are a powerful way to manage program behavior, but using them correctly requires understanding bitwise operations and choosing appropriate values. 🚩👍

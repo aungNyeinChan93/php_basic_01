@@ -1,0 +1,21 @@
+The filter_var() function in PHP is a versatile tool for filtering and validating data. It allows you to apply
+various filters to a given value. Here’s how it works:
+1. Syntax:
+filter_var($value, $filter, $options);
+$value: The value to filter (scalar values are internally converted to strings before filtering).
+$filter: The ID of the filter to apply. You can find a list of available filters in the Types of filters
+section of the PHP manual.
+$options: An associative array of options or a bitwise disjunction of flags (if the filter accepts
+options).
+2. Return Value:
+If the filter succeeds, it returns the filtered data.
+If the filter fails, it returns false.
+3. Examples:
+Validate an email address:
+var_dump(filter_var('bob@example.com', FILTER_VALIDATE_EMAIL));
+Output: string(15) "bob@example.com"
+Filter an array of email addresses:
+$emails = ["bob@example.com", "test@example.local", "invalidemail"];
+var_dump(filter_var($emails, FILTER_VALIDATE_EMAIL, FILTER_REQUIRE_ARRAY));
+Output: array(3) { [0]=> string(15) "bob@example.com" [1]=> string(18) "test@example.local"
+[2]=> bool(false) }
